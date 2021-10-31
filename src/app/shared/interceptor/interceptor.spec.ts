@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { Interceptor } from './interceptor';
 
-describe('InterceptorInterceptor', () => {
+describe('Interceptor', () => {
 	beforeEach(() =>
 		TestBed.configureTestingModule({
 			providers: [Interceptor]

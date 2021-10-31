@@ -6,7 +6,7 @@ import {
 	HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { map, catchError, finalize } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -23,9 +23,6 @@ export class Interceptor implements HttpInterceptor {
 			}),
 			catchError((error: HttpErrorResponse) => {
 				return throwError(error.error);
-			}),
-			finalize(() => {
-				// this.dissmissLoader();
 			})
 		);
 	}

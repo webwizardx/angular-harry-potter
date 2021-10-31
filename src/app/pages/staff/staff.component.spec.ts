@@ -5,30 +5,34 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
 import { StaffComponent } from './staff.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('StaffComponent', () => {
-  let component: StaffComponent;
-  let fixture: ComponentFixture<StaffComponent>;
+	let component: StaffComponent;
+	let fixture: ComponentFixture<StaffComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ StaffComponent ],
-      imports: [
-        NoopAnimationsModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatTableModule,
-      ]
-    }).compileComponents();
-  }));
+	beforeEach(
+		waitForAsync(() => {
+			TestBed.configureTestingModule({
+				declarations: [StaffComponent],
+				imports: [
+					NoopAnimationsModule,
+					MatPaginatorModule,
+					MatSortModule,
+					MatTableModule,
+					HttpClientModule
+				]
+			}).compileComponents();
+		})
+	);
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(StaffComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(StaffComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should compile', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should compile', () => {
+		expect(component).toBeTruthy();
+	});
 });

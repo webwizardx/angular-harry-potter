@@ -1,0 +1,80 @@
+<form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+	<mat-card class="request-card">
+		<mat-card-header>
+			<mat-card-title>Solicitud de Estudio</mat-card-title>
+		</mat-card-header>
+		<mat-card-content>
+			<!--  -->
+			<div class="row">
+				<!--  -->
+				<div class="col">
+					<mat-form-field class="full-width">
+						<input
+							matInput
+							placeholder="First name"
+							formControlName="firstName"
+						/>
+						<mat-error
+							*ngIf="controls.firstName.hasError('required')"
+						>
+							First name is <strong>required</strong>
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<!--  -->
+				<div class="col">
+					<mat-form-field class="full-width">
+						<input
+							matInput
+							placeholder="Last name"
+							formControlName="lastName"
+						/>
+						<mat-error
+							*ngIf="controls.lastName.hasError('required')"
+						>
+							Last name is <strong>required</strong>
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<!--  -->
+			</div>
+			<!--  -->
+			<div class="row">
+				<!--  -->
+				<div class="col">
+					<mat-form-field class="full-width">
+						<input
+							matInput
+							#age
+							maxlength="5"
+							placeholder="Age"
+							type="number"
+							formControlName="age"
+						/>
+						<mat-hint align="end"
+							>{{age.value.length}} / 5</mat-hint
+						>
+					</mat-form-field>
+				</div>
+				<!--  -->
+			</div>
+			<!--  -->
+		</mat-card-content>
+		<mat-card-actions class="text-center">
+			<button mat-raised-button color="primary" type="submit">
+				Submit
+			</button>
+		</mat-card-actions>
+	</mat-card>
+</form>
+
+<mat-card>
+	<mat-card-content>
+		<mat-list>
+			<mat-list-item *ngFor="let studentRequest of studentsRequests">
+				Nueva solicitud de {{ studentRequest.firstName }} {{
+				studentRequest.lastName }}
+			</mat-list-item>
+		</mat-list>
+	</mat-card-content>
+</mat-card>
